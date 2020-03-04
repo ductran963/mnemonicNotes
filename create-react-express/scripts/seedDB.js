@@ -8,7 +8,7 @@ mongoose.connect(
   "mongodb://localhost/reactreadinglist"
 );
 
-const bookSeed = [
+const clientSeed = [
   {
     title: "Lord of the Flies",
     author: "William Golding",
@@ -27,7 +27,7 @@ const bookSeed = [
 
 db.Book
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.Book.collection.insertMany(clientSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -36,3 +36,6 @@ db.Book
     console.error(err);
     process.exit(1);
   });
+
+
+  // still need to build database and rename for clients.
