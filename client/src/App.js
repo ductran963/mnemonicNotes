@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/clients/:id">
             <ClientDetail />
           </Route>
-          <Route exact path="/clientsform">
+          <Route exact path="/clientform">
             <ClientForm />
           </Route>
           <Route>
