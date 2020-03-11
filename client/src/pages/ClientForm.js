@@ -157,8 +157,11 @@ export default function ClientForm() {
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" color="primary">
-                                        Add Friend
-                    </Button>
+                                        
+                                        <Link href="#" onClick={preventDefault} color="inherit">
+                                            {'Add Friend'}
+                                        </Link>
+                                    </Button>
                                 </Grid>
                             </Grid>
                         </div>
@@ -166,9 +169,9 @@ export default function ClientForm() {
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
-                    <Grid container spacing={4}>
-                        {cards.map(card => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
+                    
+                        
+                            
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
@@ -192,9 +195,9 @@ export default function ClientForm() {
                       </Button>
                                     </CardActions>
                                 </Card>
-                            </Grid>
-                        ))}
-                    </Grid>
+                            
+                        
+                  
                 </Container>
             </main>
             {/* Footer */}

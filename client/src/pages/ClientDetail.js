@@ -104,12 +104,16 @@ class App extends Component {
                 <Grid container spacing={2} justify="center">
                   <Grid item>
                     <Button variant="contained" color="primary">
-                      Add Client
+                    <Link href="#" onClick={preventDefault} color="inherit">
+                        {'Add Client'}
+                    </Link>
                     </Button>
                   </Grid>
                   <Grid item>
                     <Button variant="outlined" color="primary">
-                      Add Friend
+                    <Link href="#" onClick={preventDefault} color="inherit">
+                        {'Add Friend'}
+                    </Link>
                     </Button>
                   </Grid>
                 </Grid>
