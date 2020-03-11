@@ -10,24 +10,42 @@ mongoose.connect(
 
 const clientSeed = [
   {
-    title: "Lord of the Flies",
-    author: "William Golding",
-    synopsis:
-      "The tale of a party of shipwrecked schoolboys, marooned on a coral island, who at first enjoy the freedom of the situation but soon divide into fearsome gangs which turn the paradise island into a nightmare of panic and death.",
+    name: "Homer Simpson",
+    location: "Springfield",
+    contactInfo:
+      "Works at Springfield Nuclear",
+    specialNotes: "Loves donuts. Drives Pink Car. Loves Duff Beer. Met at Moe's",
     date: new Date(Date.now())
   },
   {
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    synopsis:
-      "The Catcher in the Rye is a 1951 novel by J. D. Salinger. A controversial novel originally published for adults, it has since become popular with adolescent readers for its themes of teenage angst and alienation.",
+    name: "Tim Harley",
+    location: "San Diego, CA",
+    contactInfo:
+      "858-245-5464",
+    specialNotes: "Rides motorcycles. Software Developer. Plays golf at Aviara",
     date: new Date(Date.now())
   },
+  {
+    name: "Samantha Goodwing",
+    location: "Encinitas, CA",
+    contactInfo:
+      "619-213-9090 Silver Consulting Inc.",
+    specialNotes: "Accounting specialist. Working on a pilot's license. Best overall services for price point on accounting service contract. ",
+    date: new Date(Date.now())
+  },
+  {
+    name: "Tim Richards",
+    location: "Ocean Beach, San Diego, Ca",
+    contactInfo:
+      "858-121-4145 Organic Greens",
+    specialNotes: "Goes by Timmy The Tooth. Drives a VW Bus. Surfer.",
+    date: new Date(Date.now())
+  }
 ];
 
-db.Book
+db.Client
   .remove({})
-  .then(() => db.Book.collection.insertMany(clientSeed))
+  .then(() => db.Client.collection.insertMany(clientSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
