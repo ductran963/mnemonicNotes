@@ -112,8 +112,11 @@ export default function Clients() {
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Add Friend
-                    </Button>
+                    
+                    <Link href="#" onClick={preventDefault} color="inherit">
+                      {'Add Friend'}
+                    </Link>
+                  </Button>
                 </Grid>
               </Grid>
             </div>
