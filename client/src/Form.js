@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Component } from "react";
-// import React, { Component } from "react";
-import "../App.css";
+import React, { Component } from "react";
+import "./App.css";
 // import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import 'typeface-roboto';
@@ -21,13 +20,12 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
 
-
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.deepOrange,
     padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
@@ -53,25 +51,11 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(6),
   },
 }));
+
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-class App extends Component {
-  render() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
-}
-  
-  
-  
-  export default function Clients() {
+
+
+  export default function Album() {
     const classes = useStyles();
     const preventDefault = event => event.preventDefault();
   
@@ -84,7 +68,7 @@ class App extends Component {
             {/* <a href="https://www.w3schools.com">Visit W3Schools.com!</a> */}
             <Typography variant="h6" color="inherit" noWrap>
               
-              <Link href="/" onClick={preventDefault} color="inherit">
+              <Link href="#" onClick={preventDefault} color="inherit">
                 {'Home'}
               </Link>
             </Typography>
@@ -104,16 +88,12 @@ class App extends Component {
                 <Grid container spacing={2} justify="center">
                   <Grid item>
                     <Button variant="contained" color="primary">
-                    <Link href="#" onClick={preventDefault} color="inherit">
-                        {'Add Client'}
-                    </Link>
+                      Add Client
                     </Button>
                   </Grid>
                   <Grid item>
                     <Button variant="outlined" color="primary">
-                    <Link href="#" onClick={preventDefault} color="inherit">
-                        {'Add Friend'}
-                    </Link>
+                      Add Friend
                     </Button>
                   </Grid>
                 </Grid>
@@ -159,7 +139,7 @@ class App extends Component {
             Footer
           </Typography>
           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            Add links or copy right info
+            Add links or copyrighted info
           </Typography>
           
         </footer>
@@ -169,4 +149,6 @@ class App extends Component {
   }
 
 
-// export default Clients;
+
+// export default App;
+
