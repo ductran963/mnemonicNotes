@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 
 
 
@@ -12,8 +12,8 @@ import React, { useState, useEffect } from "react";
 // import { Input, TextArea, FormBtn } from "../components/Form";
 
 
-import React, { Component } from "react";
-import "./App.css";
+// import React, { Component } from "react";
+import "../App.css";
 // import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import 'typeface-roboto';
@@ -84,7 +84,7 @@ class App extends Component {
   
   
   
-  export default function Album() {
+  export default function Clients() {
     const classes = useStyles();
     const preventDefault = event => event.preventDefault();
   
@@ -178,4 +178,4 @@ class App extends Component {
   }
 
 
-export default Clients;
+// export default Clients;
