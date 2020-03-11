@@ -4,7 +4,7 @@ import Clients from "./pages/Clients";
 import ClientDetail from "./pages/ClientDetail";
 import ClientForm from "./pages/ClientForm";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import Nav from "./components/nav/index";
 
 function App() {
   return (
