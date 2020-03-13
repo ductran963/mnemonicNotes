@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from "react";
 // import React, { Component } from "react";
 import "../App.css";
 // import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+
 import 'typeface-roboto';
 // import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
@@ -20,8 +20,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
-
-
+import TextField from '@material-ui/core/TextField';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Box from '@material-ui/core/Box';
+// import ClientsRedirect from "./pages/Clients";
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PhoneIcon from '@material-ui/icons/Phone';
+import WorkIcon from '@material-ui/icons/Work';
+import CreateIcon from '@material-ui/icons/Create';
+import Button from '@material-ui/core/Button';
+import SendIcon from '@material-ui/icons/Send';
 const useStyles = makeStyles(theme => ({
     icon: {
         marginRight: theme.spacing(2),
@@ -52,8 +60,29 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
     },
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: 200,
+            display: 'flex',
+    flexWrap: 'wrap',
+        },
+    },
+    headline: {
+        textAlign: 'center', // <-- the magic
+
+
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: "95%",
+        height: "200%",
+        
+      },
+    
 }));
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 
 class App extends Component {
     render() {
@@ -73,12 +102,12 @@ export default function ClientForm() {
     // // Setting our component's initial state
     // const [clients, setClients] = useState([])
     // const [formObject, setFormObject] = useState({})
-
-    // // Load all clients and store them with setClientss
+  
+    // // Load all clients and store them with setClients
     // useEffect(() => {
     //   loadClients()
     // }, [])
-
+  
     // // Loads all clients and sets them to clients
     // function loadClients() {
     //   API.getClients()
@@ -87,20 +116,20 @@ export default function ClientForm() {
     //     )
     //     .catch(err => console.log(err));
     // };
-
+  
     // // Deletes a client from the database with a given id, then reloads clients from the db
     // function deleteClient(id) {
     //   API.deleteClient(id)
     //     .then(res => loadClients())
     //     .catch(err => console.log(err));
     // }
-
+  
     // // Handles updating component state when the user types into the input field
     // function handleInputChange(event) {
     //   const { name, value } = event.target;
     //   setFormObject({...formObject, [name]: value})
     // };
-
+  
     // // When the form is submitted, use the API.saveClient method to save the client data
     // // Then reload clients from the database
     // function handleFormSubmit(event) {
@@ -112,13 +141,13 @@ export default function ClientForm() {
     //       contactInfo: formObject.contactInfo,
     //       specialNotes: formObject.specialNotes
     //     })
-    //       .then(res => loadClients())
+    //       .then(res => Redirect(ClientsRedirect))
     //       .catch(err => console.log(err));
     //   }
     // };
-
     const classes = useStyles();
     const preventDefault = event => event.preventDefault();
+   
 
     return (
         <React.Fragment>
@@ -157,7 +186,7 @@ export default function ClientForm() {
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" color="primary">
-                                        
+
                                         <Link href="#" onClick={preventDefault} color="inherit">
                                             {'Add Friend'}
                                         </Link>
@@ -168,40 +197,82 @@ export default function ClientForm() {
                     </Container>
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md">
-                    {/* End hero unit */}
-                    
-                        
-                            
-                                <Card className={classes.card}>
-                                    <CardMedia
-                                        className={classes.cardMedia}
-                                        image="https://source.unsplash.com/random"
-                                        title="Image title"
-                                    />
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            Card Notes
+                    <Card className={classes.card}>
+                        <br />
+                        <Typography  className={classes.headline} gutterBottom variant="h3" justifyContent="center">
+                            Enter your notes
                       </Typography>
-                                        <Typography>
-                                            This is a media card. You can use this section to describe the content.
-                      </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            View
-                      </Button>
-                                        <Button size="small" color="primary">
-                                            Edit
-                      </Button>
-                                    </CardActions>
-                                </Card>
-                            
                         
-                  
+                        <CardContent className={classes.cardContent}>
+                        <form className={classes.root} noValidate autoComplete="off">
+                            <Typography>
+                                <AccountCircle /> Name: 
+                            </Typography>
+                                <TextField
+                                    className={classes.textField}
+                                    id="outlined-secondary"
+                                    
+                                    variant="outlined"
+                                    color="secondary" />
+                            <Typography>
+                                <LocationOnIcon/>Location: 
+                            </Typography>
+                            <TextField
+                                    className={classes.textField}
+                                    id="outlined-secondary"
+                                    
+                                    variant="outlined"
+                                    color="secondary" />
+                            <Typography>
+                                <PhoneIcon/>Phone: 
+                            </Typography>
+                            <TextField
+                                    className={classes.textField}
+                                    id="outlined-secondary"
+                                    
+                                    variant="outlined"
+                                    color="secondary" />
+                            <Typography>
+                                <WorkIcon/>Occupation: 
+                            </Typography>
+                            <TextField
+                                    className={classes.textField}
+                                    id="outlined-secondary"
+                                    
+                                    variant="outlined"
+                                    color="secondary" />
+                            <Typography>
+                                <CreateIcon/>Notes: 
+                            </Typography>
+                                <TextField
+                                    className={classes.textField}
+                                    id="outlined-secondary"
+
+                                    variant="outlined"
+                                    color="secondary"
+                                    multiline={true}
+                                    rows={10}
+
+
+                                />
+                               
+
+                        </form>
+                            
+                        </CardContent>
+                        <CardActions>
+                        <Button  className={classes.textField} variant="contained" color="primary">
+        Submit <SendIcon/>
+      
+      </Button>
+     
+                        </CardActions>
+                        <br />
+                    </Card>
                 </Container>
             </main>
             {/* Footer */}
-            <footer className={classes.footer}>
+            {/* <footer className={classes.footer}>
                 <Typography variant="h6" align="center" gutterBottom>
                     Footer
           </Typography>
@@ -209,7 +280,7 @@ export default function ClientForm() {
                     Add links or copy right info
           </Typography>
 
-            </footer>
+            </footer> */}
             {/* End footer */}
         </React.Fragment>
     );
