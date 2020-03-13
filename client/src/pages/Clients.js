@@ -113,7 +113,7 @@ export default function Clients() {
                 <Grid item>
                   <Button variant="outlined" color="primary">
                     
-                    <Link href="#" onClick={preventDefault} color="inherit">
+                    <Link href="" onClick={preventDefault} color="inherit">
                       {'Add Friend'}
                     </Link>
                   </Button>
@@ -156,7 +156,7 @@ export default function Clients() {
         </Container>
       </main>
       {/* Footer */}
-      <footer className={classes.footer}>
+      {/* <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
           </Typography>
@@ -164,7 +164,7 @@ export default function Clients() {
           Add links or copy right info
           </Typography>
 
-      </footer>
+      </footer> */}
       {/* End footer */}
     </React.Fragment>
   );
