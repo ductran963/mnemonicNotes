@@ -20,7 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
-
+import API from "../utils/API"
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -54,26 +54,50 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-class App extends Component {
-  render() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
-}
+// class App extends Component {
+//   render() {
+//     return (
+//       <Typography variant="body2" color="textSecondary" align="center">
+//         {'Copyright © '}
+//         <Link color="inherit" href="https://material-ui.com/">
+//           Your Website
+//         </Link>{' '}
+//         {new Date().getFullYear()}
+//         {'.'}
+//       </Typography>
+//     );
+//   }
+// }
 
 
 
-export default function Clients() {
+ function Clients() {
   const classes = useStyles();
   const preventDefault = event => event.preventDefault();
+
+
+// Setting our component's initial state
+const [clients, setClients] = useState([])
+const [formObject, setFormObject] = useState({})
+
+// Load all clients and store them with setClients
+useEffect(() => {
+    loadClients()
+}, [])
+
+// Loads all clients and sets them to clients
+function loadClients() {
+    API.getClients()
+        .then(res =>
+         
+            setClients(res.data),
+            console.log("hello")
+            
+        )
+        .catch(err => console.log(err));
+};
+
+
 
   return (
     <React.Fragment>
@@ -125,8 +149,10 @@ export default function Clients() {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+
+            
+            {cards.map(client => (
+              <Grid item key={client.id} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -135,10 +161,12 @@ export default function Clients() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Card Notes
+                      {client.name}
+                      
                       </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      
+                     {client.specialNotes}
                       </Typography>
                   </CardContent>
                   <CardActions>
@@ -171,4 +199,4 @@ export default function Clients() {
 }
 
 
-// export default Clients;
+export default Clients;
