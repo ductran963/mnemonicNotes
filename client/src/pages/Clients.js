@@ -89,9 +89,9 @@ useEffect(() => {
 function loadClients() {
     API.getClients()
         .then(res =>
-          console.log(res.data),
+         
             setClients(res.data),
-            console.log("hello"),
+            console.log("hello")
             
         )
         .catch(err => console.log(err));
