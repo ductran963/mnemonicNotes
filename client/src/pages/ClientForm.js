@@ -1,17 +1,18 @@
+/* eslint-disable */
 import React, { useState, useEffect, Component } from "react";
 // import React, { Component } from "react";
 import "../App.css";
 // import ReactDOM from 'react-dom';
-
+import API from '../utils/API'
 import 'typeface-roboto';
 // import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-
+// import Input from '@material-ui/core/Input'
 // import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,16 +21,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
-import TextField from '@material-ui/core/TextField';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Box from '@material-ui/core/Box';
+// import TextField from '@material-ui/core/TextField';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+
 // import ClientsRedirect from "./pages/Clients";
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import PhoneIcon from '@material-ui/icons/Phone';
-import WorkIcon from '@material-ui/icons/Work';
-import CreateIcon from '@material-ui/icons/Create';
+// import LocationOnIcon from '@material-ui/icons/LocationOn';
+// import PhoneIcon from '@material-ui/icons/Phone';
+// import WorkIcon from '@material-ui/icons/Work';
+// import CreateIcon from '@material-ui/icons/Create';
 import Button from '@material-ui/core/Button';
-import SendIcon from '@material-ui/icons/Send';
+// import SendIcon from '@material-ui/icons/Send';
+// import e from "express";
+import { Input, TextArea, FormBtn } from "../components/Form";
 const useStyles = makeStyles(theme => ({
     icon: {
         marginRight: theme.spacing(2),
@@ -65,7 +68,7 @@ const useStyles = makeStyles(theme => ({
             margin: theme.spacing(1),
             width: 200,
             display: 'flex',
-    flexWrap: 'wrap',
+            flexWrap: 'wrap',
         },
     },
     headline: {
@@ -78,9 +81,9 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(1),
         width: "95%",
         height: "200%",
-        
-      },
-    
+
+    },
+
 }));
 
 
@@ -99,55 +102,56 @@ class App extends Component {
     }
 }
 export default function ClientForm() {
-    // // Setting our component's initial state
-    // const [clients, setClients] = useState([])
-    // const [formObject, setFormObject] = useState({})
-  
-    // // Load all clients and store them with setClients
-    // useEffect(() => {
-    //   loadClients()
-    // }, [])
-  
-    // // Loads all clients and sets them to clients
-    // function loadClients() {
-    //   API.getClients()
-    //     .then(res => 
-    //       setClients(res.data)
-    //     )
-    //     .catch(err => console.log(err));
-    // };
-  
-    // // Deletes a client from the database with a given id, then reloads clients from the db
+    // Setting our component's initial state
+    const [clients, setClients] = useState([])
+    const [formObject, setFormObject] = useState({})
+
+    // Load all clients and store them with setClients
+    useEffect(() => {
+        loadClients()
+    }, [])
+
+    // Loads all clients and sets them to clients
+    function loadClients() {
+        API.getClients()
+            .then(res =>
+                setClients(res.data)
+            )
+            .catch(err => console.log(err));
+    };
+
+    // Deletes a client from the database with a given id, then reloads clients from the db
     // function deleteClient(id) {
-    //   API.deleteClient(id)
-    //     .then(res => loadClients())
-    //     .catch(err => console.log(err));
+    //     API.deleteClient(id)
+    //         .then(res => loadClients())
+    //         .catch(err => console.log(err));
     // }
-  
-    // // Handles updating component state when the user types into the input field
-    // function handleInputChange(event) {
-    //   const { name, value } = event.target;
-    //   setFormObject({...formObject, [name]: value})
-    // };
-  
-    // // When the form is submitted, use the API.saveClient method to save the client data
-    // // Then reload clients from the database
-    // function handleFormSubmit(event) {
-    //   event.preventDefault();
-    //   if (formObject.name && formObject.contactInfo) {
-    //     API.saveClient({
-    //       name: formObject.name,
-    //       location: formObject.location,
-    //       contactInfo: formObject.contactInfo,
-    //       specialNotes: formObject.specialNotes
-    //     })
-    //       .then(res => Redirect(ClientsRedirect))
-    //       .catch(err => console.log(err));
-    //   }
-    // };
+
+    // Handles updating component state when the user types into the input field
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({ ...formObject, [name]: value })
+    };
+
+    // When the form is submitted, use the API.saveClient method to save the client data
+    // Then reload clients from the database
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.name && formObject.notes) {
+            API.saveClient({
+                name: formObject.name,
+                location: formObject.location,
+                contactInfo: formObject.occupation,
+
+                specialNotes: formObject.notes
+            })
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+    };
     const classes = useStyles();
     const preventDefault = event => event.preventDefault();
-   
+
 
     return (
         <React.Fragment>
@@ -178,7 +182,7 @@ export default function ClientForm() {
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
-                                        <Link href="/clientsform" onClick={preventDefault} color="inherit">
+                                        <Link href="/clientform" onClick={preventDefault} color="inherit">
                                             {'Add Client'}
                                         </Link>
 
@@ -199,74 +203,56 @@ export default function ClientForm() {
                 <Container className={classes.cardGrid} maxWidth="md">
                     <Card className={classes.card}>
                         <br />
-                        <Typography  className={classes.headline} gutterBottom variant="h3" justifyContent="center">
+                        <Typography className={classes.headline} gutterBottom variant="h3" justifyContent="center">
                             Enter your notes
                       </Typography>
-                        
+
                         <CardContent className={classes.cardContent}>
-                        <form className={classes.root} noValidate autoComplete="off">
-                            <Typography>
-                                <AccountCircle /> Name: 
-                            </Typography>
-                                <TextField
-                                    className={classes.textField}
-                                    id="outlined-secondary"
-                                    
-                                    variant="outlined"
-                                    color="secondary" />
-                            <Typography>
-                                <LocationOnIcon/>Location: 
-                            </Typography>
-                            <TextField
-                                    className={classes.textField}
-                                    id="outlined-secondary"
-                                    
-                                    variant="outlined"
-                                    color="secondary" />
-                            <Typography>
-                                <PhoneIcon/>Phone: 
-                            </Typography>
-                            <TextField
-                                    className={classes.textField}
-                                    id="outlined-secondary"
-                                    
-                                    variant="outlined"
-                                    color="secondary" />
-                            <Typography>
-                                <WorkIcon/>Occupation: 
-                            </Typography>
-                            <TextField
-                                    className={classes.textField}
-                                    id="outlined-secondary"
-                                    
-                                    variant="outlined"
-                                    color="secondary" />
-                            <Typography>
-                                <CreateIcon/>Notes: 
-                            </Typography>
-                                <TextField
-                                    className={classes.textField}
-                                    id="outlined-secondary"
-
-                                    variant="outlined"
-                                    color="secondary"
-                                    multiline={true}
-                                    rows={10}
-
-
+                            <form className={classes.root} noValidate autoComplete="off">
+                                <Input
+                                    onChange={handleInputChange}
+                                    name="name"
+                                    placeholder="name (required)"
                                 />
-                               
+                                <Input
+                                    onChange={handleInputChange}
+                                    name="location"
+                                    placeholder="location (required)"
+                                />
+                                 <Input
+                                    onChange={handleInputChange}
+                                    name="occupation"
+                                    placeholder="occupation (required)"
+                                />
+                                 <Input
+                                    onChange={handleInputChange}
+                                    name="phone"
+                                    placeholder="phone (required)"
+                                />
+                                <TextArea
+                                    onChange={handleInputChange}
+                                    name="notes"
+                                    placeholder="notes (Optional)"
+                                />
+                                <FormBtn
+                                    disabled={!(formObject.name && formObject.notes)}
+                                    onClick={handleFormSubmit}
+                                >
+                                    Saved Client
+                                </FormBtn>
 
-                        </form>
-                            
+
+
+                            </form>
+
                         </CardContent>
-                        <CardActions>
-                        <Button  className={classes.textField} variant="contained" color="primary">
-        Submit <SendIcon/>
-      
-      </Button>
-     
-                        </CardActions>
+                        {/* <CardActions>
+                            <Button onclick={() => handleFormSubmit()} className={classes.textField} variant="contained" color="primary">
+                                Submit <SendIcon />
+
+                            </Button>
+
+                        </CardActions> */}
                         <br />
                     </Card>
                 </Container>
