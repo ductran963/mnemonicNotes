@@ -6,7 +6,8 @@ router.route("/")
 .get(clientsController.findAll);
  
 router.route("/clientform")
-.post(clientsController.create);
+.post(clientsController.create)
+.get(clientsController.findAll);
 
 // Matches with "/api/clients/:id"
 router
