@@ -1,29 +1,38 @@
-# Create React Express App
+# Shopping Reviews
 
-## About This Boilerplate
+#### User's Story
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+AS an avid note taker, I WANT to have quick access to all my notes and be able to use it on any of my devices. SO THAT I can better keep track of things and be more organized.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+#### Purpose
 
-## Starting the app locally
+* Home page: this page allow users to checkout all their saved notes and can view and edit any of them
+* Add Client/Add Friend page: this page allows people to add notes about their work clients, collegues, employees, friends, family
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+#### Functionality
+* MERN stack
+* Mongo DB, 
+* GET and POST routes for retrieving and adding new data
+* Polished website using JS, CSS framework (Material UI)
+* MVC structured 
 
-```
-npm install
-```
+#### Future Development
 
-This should install node modules within the server and the client folder.
+* Account managements system (Passport):
+    * New users sign up option
+    * Registered users
+    * All notes saved to users account
+* Home Page: 
+    * All saved notes added to homepage as cards
+    * Search bar/dropdown selection of all saved notes
+    * View and Edit notes options
 
-After both installations complete, run the following command in your terminal:
+#### Link to github page: 
+https://github.com/ductran963/mnemonicNotes
 
-```
-npm start
-```
+#### Link to Heroku:
+https://mnemonic-names-2020.herokuapp.com/
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+

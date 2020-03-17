@@ -172,7 +172,7 @@ export default function ClientForm() {
                     <Card className={classes.card}>
                         <br />
                         <Typography component = "h2" className={classes.headline} gutterBottom variant="h2" justifyContent="center">
-                            Add Client Notes
+                            Add Friend Notes
                       </Typography>
 
                         <CardContent className={classes.cardContent}>
