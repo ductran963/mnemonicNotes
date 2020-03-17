@@ -32,7 +32,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import Button from '@material-ui/core/Button';
 // import SendIcon from '@material-ui/icons/Send';
 // import e from "express";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn } from "../components/Form/index";
 const useStyles = makeStyles(theme => ({
     icon: {
         marginRight: theme.spacing(2),
@@ -109,7 +109,7 @@ export default function ClientForm() {
     // Load all clients and store them with setClients
     useEffect(() => {
         loadClients()
-    }, [])
+    }, []);
 
     // Loads all clients and sets them to clients
     function loadClients() {
@@ -138,11 +138,11 @@ export default function ClientForm() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.name && formObject.notes) {
+
             API.saveClient({
                 name: formObject.name,
                 location: formObject.location,
                 contactInfo: formObject.occupation,
-
                 specialNotes: formObject.notes
             })
                 .then(res => console.log(res))
@@ -156,46 +156,43 @@ export default function ClientForm() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="relative">
-                <Toolbar>
-                    <HomeIcon className={classes.icon} />
-                    {/* <a href="https://www.w3schools.com">Visit W3Schools.com!</a> */}
-                    <Typography variant="h6" color="inherit" noWrap>
-
-                        <Link href="/" onClick={preventDefault} color="inherit">
-                            {'Home'}
-                        </Link>
-                    </Typography>
-                </Toolbar>
-            </AppBar>
+                <AppBar position="relative">
+                    <Toolbar>
+                        <HomeIcon className={classes.icon} />
+                        {/* <a href="https://www.w3schools.com">Visit W3Schools.com!</a> */}
+                        <Typography variant="h6" color="inherit" noWrap>
+                            <Link href="/" onClick={preventDefault} color="inherit">
+                                {'Home'}
+                            </Link>
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
             <main>
                 {/* Hero unit */}
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                             Testing Form Page
-              </Typography>
+                        </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
                             "I'm really good with names"
-              </Typography>
+                        </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
-                                        <Link href="/clientform" onClick={preventDefault} color="inherit">
-                                            {'Add Client'}
+                                        <Link href="/clientform" color="inherit">
+                                            Add Client
                                         </Link>
-
                                     </Button>
                                 </Grid>
-                                <Grid item>
+                                {/* <Grid item>
                                     <Button variant="outlined" color="primary">
-
-                                        <Link href="#" onClick={preventDefault} color="inherit">
-                                            {'Add Friend'}
+                                        <Link href="#" color="inherit">
+                                           Add Friend
                                         </Link>
                                     </Button>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
                         </div>
                     </Container>
@@ -205,8 +202,7 @@ export default function ClientForm() {
                         <br />
                         <Typography className={classes.headline} gutterBottom variant="h3" justifyContent="center">
                             Enter your notes
-                      </Typography>
-
+                        </Typography>
                         <CardContent className={classes.cardContent}>
                             <form className={classes.root} noValidate autoComplete="off">
                                 <Input
@@ -219,33 +215,28 @@ export default function ClientForm() {
                                     name="location"
                                     placeholder="location (required)"
                                 />
-                                 <Input
+                                <Input
                                     onChange={handleInputChange}
                                     name="occupation"
                                     placeholder="occupation (required)"
                                 />
-                                 <Input
+                                {/* <Input
                                     onChange={handleInputChange}
                                     name="phone"
                                     placeholder="phone (required)"
-                                />
-                                <TextArea
+                                /> */}
+                                <Input
                                     onChange={handleInputChange}
                                     name="notes"
                                     placeholder="notes (Optional)"
                                 />
                                 <FormBtn
                                     disabled={!(formObject.name && formObject.notes)}
-                                    onClick={handleFormSubmit}
-                                >
+                                    onClick={handleFormSubmit}>
                                     Saved Client
                                 </FormBtn>
-
-
-
                             </form>
-
-                        </CardContent>
+                            </CardContent>
                         {/* <CardActions>
                             <Button onclick={() => handleFormSubmit()} className={classes.textField} variant="contained" color="primary">
                                 Submit <SendIcon />
