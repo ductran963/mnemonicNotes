@@ -1,9 +1,12 @@
+// const express = require('express');
+const clientsController = require('../../controllers/clientsController');
 const router = require("express").Router();
-const clientsController = require("../../controllers/clientsController");
+// const router = new express.Router();
 
 // Matches with "/api/clients"
 router.route("/")
-.get(clientsController.findAll);
+.get(clientsController.findAll)
+.post(clientsController.create);
  
 router.route("/clientform")
 .post(clientsController.create)

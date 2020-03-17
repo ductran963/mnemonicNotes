@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 // import React, { Component } from "react";
 import "../App.css";
 // import ReactDOM from 'react-dom';
@@ -54,20 +54,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-class App extends Component {
-  render() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
-}
+// class App extends Component {
+//   render() {
+//     return (
+//       <Typography variant="body2" color="textSecondary" align="center">
+//         {'Copyright © '}
+//         <Link color="inherit" href="https://material-ui.com/">
+//           Your Website
+//         </Link>{' '}
+//         {new Date().getFullYear()}
+//         {'.'}
+//       </Typography>
+//     );
+//   }
+// }
   
   
   

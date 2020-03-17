@@ -34,7 +34,7 @@ import CreateIcon from '@material-ui/icons/Create';
 // import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 // import e from "express";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn } from "../components/Form/index";
 const useStyles = makeStyles(theme => ({
     icon: {
         marginRight: theme.spacing(2),
@@ -117,7 +117,7 @@ export default function ClientForm() {
     // Load all clients and store them with setClients
     useEffect(() => {
         loadClients()
-    }, [])
+    }, []);
 
     // Loads all clients and sets them to clients
     function loadClients() {
@@ -146,11 +146,11 @@ export default function ClientForm() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.name && formObject.notes) {
+
             API.saveClient({
                 name: formObject.name,
                 location: formObject.location,
                 contactInfo: formObject.occupation,
-
                 specialNotes: formObject.notes
             })
                 .then(res => console.log(res))
