@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect, } from "react";
 // import React, { Component } from "react";
 import "../App.css";
 // import ReactDOM from 'react-dom';
@@ -146,12 +146,14 @@ function loadClients() {
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
+        
+        <Container className={classes.cardGrid} maxWidth="md"> 
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing= "4">
+           
 
             
-            {cards.map(client => (
+            {clients.map(client => (
               <Grid item key={client.id} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
@@ -182,6 +184,7 @@ function loadClients() {
             ))}
           </Grid>
         </Container>
+        
       </main>
       {/* Footer */}
       {/* <footer className={classes.footer}>
