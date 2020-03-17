@@ -168,10 +168,14 @@ function loadClients() {
                       </Typography>
                     <Typography>
                       
-                     {client.specialNotes}
-                     {client.location}
-                     {client.contactInfo}
-                     {client.date}
+                     Special Notes: {client.specialNotes}
+                     <br></br>
+                     Location: {client.location}
+                     <br></br>
+                     Contact:{client.contactInfo}
+                     <br></br>
+                     Date: {client.date}
+                     <br></br>
                       </Typography>
                   </CardContent>
                   <CardActions>
