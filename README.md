@@ -1,4 +1,4 @@
-# Shopping Reviews
+# Mnemonic Notes
 
 #### User's Story
 
