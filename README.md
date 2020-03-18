@@ -31,7 +31,7 @@ AS an avid note taker, I WANT to have quick access to all my notes and be able t
 https://github.com/ductran963/mnemonicNotes
 
 #### Link to Heroku:
-https://mnemonic-names-2020.herokuapp.com/
+https://mnemonic-notes-2020.herokuapp.com/
 
 
 
